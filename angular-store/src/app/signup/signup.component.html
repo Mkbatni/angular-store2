@@ -1,0 +1,24 @@
+<nav class="nav">
+    <a class="nav-link active" aria-current="page" href="http://localhost:4200/adminpanel">Home</a>
+    <a class="nav-link" href="http://localhost:4200/login">Login</a>
+  
+</nav>
+    
+    
+    <div class="form-container">
+           <form #ngRef="ngForm" >
+          
+            First Name : <input type="text"  name="firstname" class="form-control form-control-sm" ngModel required> 
+            Last Name : <input type="text"class="form-control form-control-sm" name="lastname" ngModel required>
+          
+            User Name : <input type="text" class="form-control form-control-sm" name="username" ngModel required> 
+            Password : <input type="text" class="form-control form-control-sm" name="password" ngModel required> 
+          
+
+           
+                <input type="submit" class="col-4 btn btn-primary btn-sm"  value="Add Info">
+                <input type="reset" class="col-4 btn btn-secondary btn-sm" value="Reset">
+           
+           
+        </form>
+    </div>

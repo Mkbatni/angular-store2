@@ -1,0 +1,60 @@
+<nav class="nav" style="background-color:rgb(128, 128, 128) ;">
+    <a class="nav-link active" aria-current="page" href="http://localhost:4200/adminpanel">Home</a>
+    <a class="nav-link" href="http://localhost:4200/login">Login</a>
+    <button class="brn btn-primary" (click)="logOut()" >Log out</button>                     
+
+  
+</nav>
+<div class="output">
+    <div>
+        <input class="form-control" type="text"  placeholder="Enter Name"  *ngIf="fieldEnable" [(ngModel)]="updatedName" />   
+        <input class="form-control" type="text"  placeholder="Enter author" *ngIf="fieldEnable" [(ngModel)]="updatedAuthor" />
+        <button class="btn btn-primary btn-lg btn-block" (click)="add()" *ngIf="fieldEnable" >Add</button> 
+    </div>
+    <table class="table table-striped" style="padding: 4px;">
+        
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">author</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+       
+  
+  
+        <tbody *ngFor="let book of books; let i = index" class="active-row">
+            <tr id={{book.id}} class="active-row">
+                <th>{{i+1}}</th>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+              
+                <td>
+                    <button class="brn btn-danger" (click)="onDelete(i)" *ngIf="deleteEnable">Delete</button>
+                    <button class="brn btn-primary" (click)="onUpdate(i)" *ngIf="updateEnable">Update</button>                     
+                </td>
+             
+            </tr>
+        
+        </tbody>
+        
+        <tr class="active-row">
+           <td> <b>{{nextItem}} </b></td> 
+        <td ><div > <input  type="text" class="form-control" *ngIf="createEnable" [(ngModel)]="newName"></div></td>
+        <td> <div><input type="text" class="form-control"   *ngIf="createEnable" [(ngModel)]="newAuthor"> </div></td>
+         
+         <td><div> <button class="btn btn-secondary  btn-lg " *ngIf="createEnable"  (click)="onCreate()">Create</button></div>
+         </td>
+        </tr>
+    </table>
+    <td>
+     
+        <td>
+
+</div>
+<div class="media" >
+    <button class="btn btn-primary btn-lg btn-block " (click)="sortByname()">Sort by name</button>
+    <button class="btn btn-secondary btn-lg btn-block " (click)="sortByAuthor()">Sort by author</button>
+</div>
+{{msg}}
